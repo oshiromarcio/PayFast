@@ -59,3 +59,6 @@ typings/
 
 # next.js build output
 .next
+
+# Arquivo oculto do sistem MacOS
+.DS_Store
