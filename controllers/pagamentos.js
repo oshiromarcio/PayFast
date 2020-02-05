@@ -5,11 +5,10 @@ module.exports = function(app) {
     });
 
     app.post('/pagamentos/pagamento', function(req, res) {
-        var pagamento = req.body;
-
+        
         req.assert("forma_de_pagamento", "Forma de pagamento é obrigatório").notEmpty();
         req.assert("valor", "Valor obrigatório e em decimal.").notEmpty().isFloat();
-        //req.assert("moeda", "A moeda precisa possuir 3 caracteres.").notEmpty().len(3,3);
+        req.assert("moeda", "A moeda precisa possuir 3 caracteres.").notEmpty().len(3,3);
 
         var errors = req.validationErrors();
 
@@ -21,6 +20,7 @@ module.exports = function(app) {
 
         console.log('Processando uma requisição de novo pagamento.');
 
+        var pagamento = req.body;
         pagamento.status = 'CRIADO';
         pagamento.data = new Date;
 
@@ -35,9 +35,8 @@ module.exports = function(app) {
             else {
                 console.log('Pagamento criado');
                 res.location('/pagamentos/pagamento/' + resultado.insertId);
+                res.status(201).json(pagamento);
             }
         });
-
-        res.status(201).json(pagamento);
     });
 }
