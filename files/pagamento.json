@@ -1,6 +1,15 @@
 {
-    "forma_de_pagamento": "payfast",
-    "valor": 95.25,
-    "moeda": "USD",
-    "descricao": "criando um pagamento"
+    "pagamento": {
+        "forma_de_pagamento": "cartao_de_credito",
+        "valor": 95.25,
+        "moeda": "USD",
+        "descricao": "criando um pagamento"
+    },
+    "cartao": {
+        "numero": "1234456778915944",
+        "bandeira": "Visa",
+        "ano_de_expiracao": "2023",
+        "mes_de_expiracao": "05",
+        "cvv": "881"
+    }
 }

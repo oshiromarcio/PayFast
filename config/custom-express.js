@@ -12,6 +12,7 @@ module.exports = function() {
     consign()
         .include('controllers')
         .then('persistencia')
+        .then('servicos')
         .into(app);
     // O comando acima é a mesma coisa que fazer o comando abaixo
     //const pagamentos = require('../controllers/pagamentos.js');
