@@ -1,0 +1,8 @@
+//serviço
+curl -X POST http://localhost:3001/upload/imagem --data-binary @imagem.jpg -H "Content-type: application/octet-stream" -v -H "filename: upload-imagem.jpg"
+
+//teste stream
+node streamFileReader.js "<nome_do_arquivo>"
+
+//teste buffer
+node fileReader.js "<nome_do_arquivo>"
