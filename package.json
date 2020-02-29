@@ -4,7 +4,8 @@
   "description": "Um gateway para pagamentos atraves de recursos http.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon cluster.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,10 @@
     "consign": "^0.1.6",
     "express": "^4.17.1",
     "express-validator": "2.20.8",
+    "morgan": "^1.9.1",
     "mysql": "^2.16.0",
     "restify-clients": "^2.6.8",
-    "soap": "^0.30.0"
+    "soap": "^0.30.0",
+    "winston": "^3.2.1"
   }
 }

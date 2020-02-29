@@ -1,3 +1,4 @@
+const logger = require("../servicos/logger");
 const PAGAMENTO_CRIADO = 'CRIADO';
 const PAGAMENTO_CONFIRMADO = 'CONFIRMADO';
 const PAGAMENTO_CANCELADO = 'CANCELADO';
@@ -20,6 +21,27 @@ module.exports = function(app) {
                 res.status(200).send(result);
             }
         });*/
+    });
+
+    app.get('/pagamentos/pagamento/:id', function(req, res) {
+        var id = req.params.id;
+
+        logger.error("Teste de lançamento de erro");
+
+        var connection = app.persistencia.connectionFactory();
+        var pagamentoDao = new app.persistencia.PagamentoDao(connection);
+
+        pagamentoDao.buscaPorId(id, function(erro, result) {
+            if (erro) {
+                console.log('Erro ao consultar banco de dados: ' + erro);
+                res.status(500).send(erro);
+                return;
+            }
+
+            console.log('Pagamento encontrado: ' + JSON.stringify(result));
+            res.json(result);
+            return;
+        });
     });
 
     app.post('/pagamentos/pagamento', function(req, res) {

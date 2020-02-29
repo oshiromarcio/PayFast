@@ -22,8 +22,8 @@ Pagamento.prototype.lista = function(ret, function()() {
     console.log(ret);
 })
 */
-PagamentoDao.prototype.buscaPorId = function(id, resultado, callback) {
-    resultado = this._connection.query('SELECT * FROM pagamentos WHERE id = ?', [id], callback);
+PagamentoDao.prototype.buscaPorId = function(id, callback) {
+    return this._connection.query('SELECT * FROM pagamentos WHERE id = ?', [id], callback);
 }
 
 module.exports = function() {
